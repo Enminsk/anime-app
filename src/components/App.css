@@ -1,0 +1,36 @@
+body {
+    background-color: black;
+}
+
+.App {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    
+}
+.cards {
+    display: flex;
+    flex-direction: row;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 10px;
+        font-weight: 700;
+            color: white;
+}
+
+.card :hover {
+    transform: scale(1.1);
+}
+
+.title {
+    font-weight: 700;
+    color: white;
+}
+
+.img {
+    height: 320px;
+}
