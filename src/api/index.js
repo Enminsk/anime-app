@@ -1,1 +1,1 @@
-export { getAnime, getSearch } from './anime';
+export { getAnime, getSearch, getAnimePage } from './anime';

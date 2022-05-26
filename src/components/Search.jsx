@@ -1,25 +1,26 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { debounce } from 'lodash';
-import { Route } from 'react-router';
+
 
 import { getSearch } from '../api';
 import css from './search.styles.module.css';
 
-
-export function Search() {
+function Search() {
     const [value, setValue] = useState('');
     const [options, setOptions] = useState([ ]);
+    const navigate = useNavigate();
 
     const inputChangeHandler = (event) => {
         setValue(event.target.value)
     };
 
-    const getSearchDebounce = useCallback(debounce((value) => getSearch(value).then(({ data }) => {
+    const getSearchDebounce = useCallback(debounce((value) => 
+    getSearch(value)
+    .then(({ data }) => {
         setOptions(data)
     }), 1500), []);
-    const navigate = useNavigate();
-
+    
     useEffect(() => {
         if (value.length > 2) {
             getSearchDebounce(value)
@@ -34,16 +35,16 @@ export function Search() {
         <div>
             <input value={value} onChange={inputChangeHandler}></input>
             <ul className={css.input}>
-                <Route>
-                    {options.map((option) => (
-                        <li key={option.mal_id} onClick={onOptionClick}>
+                {options.map((option) => (
+                    <Link key={option.mal_id} to={`/amime/${o.mal_id}`} onClick={onOptionClick}>
+                        <li>
                             {option.title}
                         </li>
-                    ))}
-                </Route>
+                    </Link>
+                ))}
             </ul>
         </div>
     )
 }
 
-
+export { Search };
