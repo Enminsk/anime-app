@@ -3,7 +3,7 @@ import { Anime } from './Anime';
 import { AnimePage } from './AnimePage';
 import { Route, Routes } from 'react-router';
 
-function App() {
+export function App() {
 
     return (
         <>
@@ -11,10 +11,9 @@ function App() {
             <Anime type="anime" />
             <Anime type="manga" />
             <Routes>
-                <Route path='/anime/:id' element={<AnimePage />} />
+                <Route path='/anime/:id' element={<AnimePage />}/>
             </Routes>
         </>
     )
-}
+};
 
-export default App;

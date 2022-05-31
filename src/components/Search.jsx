@@ -19,7 +19,7 @@ function Search() {
     getSearch(value)
     .then(({ data }) => {
         setOptions(data)
-    }), 1500), []);
+    }), 500), []);
     
     useEffect(() => {
         if (value.length > 2) {
@@ -27,24 +27,26 @@ function Search() {
         }
     }, [value]);
 
-    const onOptionClick = (o) => {
-        navigate(`/amime/${o.mal_id}`)
+    const onOptionClick = (options) => {
+        navigate(`/anime/${options.mal_id}`)
     }
 
     return (
-        <div>
-            <input value={value} onChange={inputChangeHandler}></input>
-            <ul className={css.input}>
-                {options.map((option) => (
-                    <Link key={option.mal_id} to={`/amime/${o.mal_id}`} onClick={onOptionClick}>
-                        <li>
-                            {option.title}
-                        </li>
-                    </Link>
-                ))}
-            </ul>
-        </div>
+        <>
+            <div>
+                <input value={value} onChange={inputChangeHandler}></input>
+                <ul className={css.input}>
+                    {options.map((option) => (
+                        <Link key={option.mal_id} to={`/anime/${options.mal_id}`} onClick={onOptionClick}>
+                            <li>
+                                {option.title}
+                            </li>
+                        </Link>
+                    ))}
+                </ul>
+            </div>
+        </>
     )
 }
 
-export { Search };
+export {Search};

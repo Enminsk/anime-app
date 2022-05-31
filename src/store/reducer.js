@@ -2,7 +2,7 @@ import { LOAD_STATUSES } from '../constants';
 import { AnimeActions } from './constants'
 
 const INITIAL_STATE = {
-    data: '',
+    data: {},
     loadStatus: LOAD_STATUSES.UNKNOWN,
 };
 

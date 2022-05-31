@@ -6,7 +6,7 @@ export const LOAD_STATUSES = {
 };
 
 export const AnimeActions = {
-    fetchStart: 'fetchStart',
-    fetchError: 'fetchError',
-    fetchSuccess: 'fetchSuccess',
+    FETCH_START: 'ANIME/FETCH_START',
+    FETCH_ERROR: 'ANIME/FETCH_ERROR',
+    FETCH_SUCCESS: 'ANIME/FETCH_SUCCESS',
 };

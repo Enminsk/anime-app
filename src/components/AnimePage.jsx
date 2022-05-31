@@ -1,26 +1,30 @@
 import { useParams } from "react-router";
+import { useState, useEffect } from 'react'
 import { getAnimePage } from '../api';
 
 const AnimePage = ({ type }) => {
-    const {id} = useParams();
-    const [page, setPage] = useState({});
+    
+    const [data, setData] = useState({});
+    const { id } = useParams();
 
     useEffect(() => {
         getAnimePage({ type }).then(({ data }) => {
-            setPage(data);
+            setData(data);
         });
     }, [id]);
 
     return (
         <div>
-            {page && (
+            {data && (
                 <>
-                    <div>{page.title}</div>
-                    <p>{page.synopsis}</p>
+                    <div>{data.title}</div>
+                    <p>{data.synopsis}</p>
                 </>
             )}
         </div>
     )
 }
 
-export { AnimePage }
+export {AnimePage}
+
+
