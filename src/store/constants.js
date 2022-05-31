@@ -1,0 +1,12 @@
+export const LOAD_STATUSES = {
+    LOADING: 'LOADING',
+    LOADED: 'LOADED',
+    ERROR: 'ERROR',
+    UNKNOWN: 'UNKNOWN',
+};
+
+export const AnimeActions = {
+    FETCH_START: 'ANIME/FETCH_START',
+    FETCH_ERROR: 'ANIME/FETCH_ERROR',
+    FETCH_SUCCESS: 'ANIME/FETCH_SUCCESS',
+};
